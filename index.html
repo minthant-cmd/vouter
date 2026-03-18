@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div class="voucher-wrapper" id="voucher">
+    <div class="header-info">
+        <img src="logo.png" alt="Lama Zana Logo" class="shop-logo">
+    </div>
+
+    <div class="info-row">
+        <div class="info-item">
+            <span class="label">Phone:</span>
+            <input type="text" class="line-input" value="09457055106" style="width: 130px;">
+        </div>
+        <div class="info-item">
+            <span class="label">Date:</span>
+            <input type="text" id="autoDate" class="line-input" style="width: 160px;">
+        </div>
+    </div>
+
+    <table class="voucher-table">
+        <thead>
+            <tr>
+                <th style="width: 10%;">No</th>
+                <th style="width: 45%;">Item</th>
+                <th style="width: 10%;">Qty</th>
+                <th style="width: 15%;">Price</th>
+                <th style="width: 20%;">Amount</th>
+            </tr>
+        </thead>
+        <tbody id="voucherBody">
+            <tr><td><input type="text" value="1"></td><td><input type="text"></td><td><input type="number" class="qty"></td><td><input type="number" class="price"></td><td><input type="text" class="amount" readonly></td></tr>
+            <tr><td><input type="text" value="2"></td><td><input type="text"></td><td><input type="number" class="qty"></td><td><input type="number" class="price"></td><td><input type="text" class="amount" readonly></td></tr>
+            <tr><td><input type="text" value="3"></td><td><input type="text"></td><td><input type="number" class="qty"></td><td><input type="number" class="price"></td><td><input type="text" class="amount" readonly></td></tr>
+            <tr><td><input type="text" value="4"></td><td><input type="text"></td><td><input type="number" class="qty"></td><td><input type="number" class="price"></td><td><input type="text" class="amount" readonly></td></tr>
+            <tr><td><input type="text" value="5"></td><td><input type="text"></td><td><input type="number" class="qty"></td><td><input type="number" class="price"></td><td><input type="text" class="amount" readonly></td></tr>
+            <tr><td><input type="text" value="6"></td><td><input type="text"></td><td><input type="number" class="qty"></td><td><input type="number" class="price"></td><td><input type="text" class="amount" readonly></td></tr>
+            <tr><td><input type="text" value="7"></td><td><input type="text"></td><td><input type="number" class="qty"></td><td><input type="number" class="price"></td><td><input type="text" class="amount" readonly></td></tr>
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td colspan="4" style="text-align: center; color: white;">Total</td>
+                <td><input type="text" id="grandTotal" value="0" readonly></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="print-btn-container">
+        <button type="button" onclick="downloadVoucher()">Download as Image</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
