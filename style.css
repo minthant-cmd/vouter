@@ -1,7 +1,9 @@
+/* --- Global Settings --- */
 body {
     background-color: #f4f7f6;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -9,51 +11,95 @@ body {
 
 .voucher-wrapper {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     background: #ffffff;
-    padding: 30px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 25px;
     border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.header-info { text-align: center; margin-bottom: 20px; }
-.shop-logo { width: 150px; height: auto; margin-bottom: 5px; }
-.shop-tagline { font-size: 16px; font-weight: bold; color: #333; text-transform: uppercase; }
+/* --- Logo & Header --- */
+.header-info {
+    text-align: center;
+    margin-bottom: 15px;
+}
 
+.shop-logo {
+    width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto 5px auto;
+}
+
+.shop-tagline {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* --- Phone & Date (Alignment Fixed) --- */
 .info-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
     align-items: center;
+    margin-bottom: 8px;
 }
 
-.info-item { display: flex; align-items: center; gap: 8px; }
-.label { font-weight: bold; color: #333; }
-.line-input { border: none; outline: none; padding: 4px; font-size: 15px; background: transparent; font-weight: bold; }
+.phone-box, .date-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-/* Table Style */
+.label {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.line-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#autoDate {
+    text-align: right;
+    width: 115px; 
+}
+
+/* --- Table Section (Lavender Theme) --- */
 .voucher-table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 2px;
-    table-layout: fixed;
-    border: 1.5px solid #00A6D6;
+    border-spacing: 1.5px;
+    border: 1.5px solid #967bb6;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .voucher-table th {
-    background-color: #00A6D6;
+    background-color: #967bb6;
     color: white;
-    padding: 12px 5px;
-    font-weight: bold; /* Table Header ကိုပါ အထူထားသည် */
+    padding: 10px 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* No. 1, 2, 3 ဂဏန်းများကို အလယ်ပို့ခြင်း */
+.voucher-table td:first-child {
+    text-align: center;
+    font-weight: bold;
+    color: #4b0082;
 }
 
 .voucher-table td {
-    background-color: #00A6D6;
-    height: 42px;
-    border-radius: 5px;
+    background-color: #e6e6fa;
+    height: 40px;
+    text-align: center;
 }
 
 .voucher-table input {
@@ -61,24 +107,38 @@ body {
     height: 100%;
     background: transparent;
     border: none;
-    color: white;
+    color: #4b0082;
     text-align: center;
     outline: none;
+    font-weight: bold;
     font-size: 14px;
-    font-weight: bold; /* <--- ဒီနေရာမှာ စာလုံးအထူ ပြောင်းလိုက်ပါပြီ */
 }
 
-/* Item Name ကို ဘယ်ဘက်ကပ်ရန် */
-.voucher-table td:nth-child(2) input { text-align: left; padding-left: 10px; }
+/* Item Name ဘယ်ဘက်ကပ်ရန် */
+.voucher-table td:nth-child(2) input {
+    text-align: left;
+    padding-left: 10px;
+}
 
-/* Total Row */
-.total-row td { background-color: #0088b0; }
-.total-row input { font-size: 16px; font-weight: bold; color: white; }
+/* --- Total Row (အရောင်ပိုရင့်ပေးထားသည်) --- */
+.total-row td {
+    background-color: #4b0082 !important; /* Indigo/Deep Purple အရောင်ရင့် */
+}
 
-.print-btn-container { text-align: center; margin-top: 25px; }
+.total-row input {
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* --- Download Button --- */
+.print-btn-container {
+    margin-top: 25px;
+}
+
 button {
-    padding: 12px 25px;
-    background: #00A6D6;
+    padding: 10px 25px;
+    background: #967bb6;
     color: white;
     border: none;
     border-radius: 6px;
