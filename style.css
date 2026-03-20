@@ -1,21 +1,27 @@
-/* --- Global Settings --- */
+/* --- Global Styles --- */
+* {
+    box-sizing: border-box; /* Padding ကြောင့် width ပြောင်းမသွားစေရန် */
+}
+
 body {
     background-color: #f4f7f6;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    font-family: 'Segoe UI', sans-serif;
+    padding: 10px; /* ဖုန်းအတွက် padding လျှော့ထားသည် */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
 }
 
+/* Voucher Wrapper ကို ဖုန်း screen အလိုက် အကျယ်ပြောင်းစေခြင်း */
 .voucher-wrapper {
-    width: 100%;
-    max-width: 500px;
+    width: 95%; /* ဖုန်း screen ရဲ့ ၉၅ ရာခိုင်နှုန်း ယူမည် */
+    max-width: 500px; /* ကွန်ပျူတာနဲ့ကြည့်ရင် 500px ထက် မကျော်စေရန် */
     background: #ffffff;
-    padding: 25px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 10px;
 }
 
 /* --- Logo & Header --- */
@@ -25,25 +31,22 @@ body {
 }
 
 .shop-logo {
-    width: 140px;
+    width: 35%; /* Logo ကို အချိုးကျ အကြီးအသေးလုပ်သည် */
+    min-width: 100px;
+    max-width: 150px;
     height: auto;
     display: block;
     margin: 0 auto 5px auto;
 }
 
-.shop-tagline {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-}
-
-/* --- Phone & Date (Alignment Fixed) --- */
+/* --- Phone & Date Section (Responsive Flex) --- */
 .info-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    flex-wrap: wrap; /* နေရာမဆန့်ရင် အောက်ကြောင်းဆင်းပေးရန် */
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .phone-box, .date-box {
@@ -54,8 +57,8 @@ body {
 
 .label {
     font-weight: bold;
+    font-size: 13px;
     color: #333;
-    font-size: 14px;
 }
 
 .line-input {
@@ -63,42 +66,36 @@ body {
     outline: none;
     background: transparent;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
+    width: auto;
 }
 
 #autoDate {
     text-align: right;
-    width: 115px; 
+    width: 110px; 
 }
 
-/* --- Table Section (Lavender Theme) --- */
+/* --- Table Section (Responsive Table) --- */
 .voucher-table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 1.5px;
+    border-spacing: 1px;
     border: 1.5px solid #967bb6;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
+    table-layout: fixed; /* ဇယားကွက်တွေ ပုံမပျက်စေရန် */
 }
 
 .voucher-table th {
     background-color: #967bb6;
     color: white;
-    padding: 10px 5px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-/* No. 1, 2, 3 ဂဏန်းများကို အလယ်ပို့ခြင်း */
-.voucher-table td:first-child {
-    text-align: center;
-    font-weight: bold;
-    color: #4b0082;
+    padding: 8px 2px;
+    font-size: 11px; /* စာသားသေးသေးလေးတွေ ဖုန်းမှာဆန့်စေရန် */
 }
 
 .voucher-table td {
     background-color: #e6e6fa;
-    height: 40px;
+    height: 35px;
     text-align: center;
 }
 
@@ -107,41 +104,49 @@ body {
     height: 100%;
     background: transparent;
     border: none;
-    color: #4b0082;
     text-align: center;
-    outline: none;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
+    color: #4b0082;
+    padding: 2px;
 }
 
-/* Item Name ဘယ်ဘက်ကပ်ရန် */
-.voucher-table td:nth-child(2) input {
-    text-align: left;
-    padding-left: 10px;
-}
+/* No. နဲ့ Item Name နေရာညှိခြင်း */
+.voucher-table td:first-child { text-align: center; font-size: 12px; }
+.voucher-table td:nth-child(2) input { text-align: left; padding-left: 5px; }
 
-/* --- Total Row (အရောင်ပိုရင့်ပေးထားသည်) --- */
+/* Total Row */
 .total-row td {
-    background-color: #4b0082 !important; /* Indigo/Deep Purple အရောင်ရင့် */
+    background-color: #4b0082 !important;
 }
 
 .total-row input {
     color: #ffffff !important;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
 }
 
 /* --- Download Button --- */
 .print-btn-container {
-    margin-top: 25px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 button {
-    padding: 10px 25px;
+    width: 80%; /* Button ကို ဖုန်းမှာ နှိပ်ရလွယ်အောင် အကျယ်ပေးထားသည် */
+    max-width: 200px;
+    padding: 12px;
     background: #967bb6;
     color: white;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
+}
+
+/* Screen အရမ်းသေးတဲ့ဖုန်းတွေအတွက် အထူးပြင်ဆင်ချက် */
+@media screen and (max-width: 360px) {
+    .voucher-table th { font-size: 10px; }
+    .voucher-table input { font-size: 11px; }
+    .label { font-size: 11px; }
 }
