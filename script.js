@@ -1,4 +1,14 @@
-// Qty နဲ့ Price မြှောက်ပြီး Amount ထုတ်ပေးရန်နှင့် Total ပေါင်းရန်
+// ၁။ Website ပွင့်လာတာနဲ့ ဒီနေ့ရက်စွဲကို အလိုအလျောက်ထည့်ပေးရန်
+window.onload = function() {
+    const dateInput = document.getElementById("autoDate");
+    const today = new Date();
+    
+    // ရက်စွဲပုံစံကို March 20, 2026 ပုံစံညှိခြင်း
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    dateInput.value = today.toLocaleDateString('en-US', options);
+};
+
+// ၂။ Qty နဲ့ Price မြှောက်ပြီး Amount ထုတ်ပေးရန်နှင့် Total ပေါင်းရန်
 function calculateTotal() {
     let rows = document.querySelectorAll(".voucher-table tbody tr:not(.total-row)");
     let overallTotal = 0;
@@ -17,14 +27,15 @@ function calculateTotal() {
     });
 
     // Total အကွက်မှာ ပြသခြင်း
-    document.querySelector(".total-row .amount-total").value = overallTotal;
+    document.querySelector(".amount-total").value = overallTotal;
 }
 
-// ပုံဒေါင်းလုဒ်လုပ်ရန် Function
+// ၃။ ပုံဒေါင်းလုဒ်လုပ်ရန် Function
 function downloadVoucher() {
     const voucher = document.getElementById("voucher");
     const btn = document.querySelector(".print-btn-container");
 
+    // ခေတ္တခဏ ဖျောက်ထားမယ်
     btn.style.display = "none";
 
     html2canvas(voucher, {
